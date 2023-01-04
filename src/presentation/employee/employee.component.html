@@ -1,0 +1,136 @@
+<div class="register-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!--<div class="form-group">
+        <label>Full Name</label>
+        <input
+          type="text"
+          formControlName="fullname"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.fullname.errors }"
+        />
+        <div *ngIf="submitted && f.fullname.errors" class="invalid-feedback">
+          <div *ngIf="f.fullname.errors.required">Fullname is required</div>
+        </div>
+      </div>-->
+  
+      <div class="form-group">
+        <label>Identification Card</label>
+        <input
+          type="text"
+          formControlName="identificationCard"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.identificationCard.errors }"
+        />
+        <div *ngIf="submitted && f.identificationCard.errors" class="invalid-feedback">
+          <div *ngIf="f.identificationCard.errors.required">identificationCard is required</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>First Name</label>
+        <input
+          type="text"
+          formControlName="firtsName"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+        />
+        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+          <div *ngIf="f.firstName.errors.minlength">
+            First Name must be at least 1 characters
+          </div>
+          <div *ngIf="f.firstName.errors.maxlength">
+            First Name must not exceed 20 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Last Name</label>
+        <input
+          type="text"
+          formControlName="lastName"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+        />
+        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+          <div *ngIf="f.lastName.errors.minlength">
+            Last Name must be at least 1 characters
+          </div>
+          <div *ngIf="f.lastName.errors.maxlength">
+            Last Name must not exceed 20 characters
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Other Name</label>
+        <input
+          type="text"
+          formControlName="otherName"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.otherName.errors }"
+        />
+        <div *ngIf="submitted && f.otherName.errors" class="invalid-feedback">
+          <div *ngIf="f.otherNameName.errors.minlength">
+            Other Name must be at least 1 characters
+          </div>
+          <div *ngIf="f.otherName.errors.maxlength">
+            Other Name must not exceed 20 characters
+          </div>
+        </div>
+      </div>
+      
+      <!--<div class="form-group">
+        <label>Email</label>
+        <input
+          type="text"
+          formControlName="email"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+        />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email is invalid</div>
+        </div>
+      </div>-->
+  
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          type="text"
+          formControlName="email"
+          class="form-control"
+        />
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.minlength">
+                Email must be at least 1 characters
+            </div>
+            <div *ngIf="f.email.errors.maxlength">
+                Email must not exceed 300 characters
+            </div>    
+        </div>  
+      </div>
+
+      <div class="form-group">
+        <label>Country Employee</label>
+        <select formControlName="country" 
+                class="sc-select form-control sc-form-control"
+                [data]="listCountry">
+            <option *ngFor="let item of data; let i = index" [ngValue]="item">{{item.value}}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Register</button>
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-warning float-right"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </div>

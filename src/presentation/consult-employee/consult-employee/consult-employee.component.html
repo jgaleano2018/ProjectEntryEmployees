@@ -1,0 +1,26 @@
+<div class="sc-container-table">
+    <div class="sc-container-table__item">
+        <table class="table sc-table" aria-describedby="Employees">
+            <thead class="sc-table__header sc-font-redHad-bold">
+                <tr>
+                    <th class="sc-table__th"></th>
+                    <th class="sc-table__th" scope="col">Primer Nombre</th>
+                    <th class="sc-table__th" scope="col">Otros Nombres</th>
+                    <th class="sc-table__th" scope="col">Primer Apellido</th>
+                    <th class="sc-table__th" scope="col">Email</th>
+                    <th class="sc-table__th" scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="sc-table__body sc-font-redHad-normal">
+
+                <tr *ngFor="let employee of employeesArray">
+                    <td class="sc-table__td">{{employee.firstName}}</td>
+                    <td class="sc-table__td">{{employee.otherName}}</td>
+                    <td class="sc-table__td">{{employee.lastName}}</td>
+                    <td class="sc-table__td">{{employee.email}}</td>
+                    <td class="sc-table__td">{{'Delete'}} <button class="sc-view-fees" (click)="deleteEmployee(employee.Id)"></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
